@@ -5,8 +5,9 @@ from openai import OpenAI
 from fastapi import FastAPI, HTTPException, Security, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel
-
 import pinecone
+from pinecone import Pinecone
+
 
 load_dotenv()
 
@@ -21,7 +22,7 @@ index_name = os.getenv("PINECONE_INDEX")
 
 # Initialize pinecone client
 pc = Pinecone(api_key=pinecone_api_key, environment=environment)
-index = pinecone.Index(index_name)
+index = pc.Index(index_name)
 
 # Middleware to secure HTTP endpoint
 security = HTTPBearer()
