@@ -50,7 +50,7 @@ async def get_context(
 ):
     # convert query to embeddings
     res = openai_client.embeddings.create(
-        input=[query_data.query], model="gpt-4o"
+        input=[query_data.query], model="text-embedding-3-small"
     )
     embedding = res.data[0].embedding
     # Search for matching Vectors
