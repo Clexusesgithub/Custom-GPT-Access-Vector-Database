@@ -20,7 +20,7 @@ environment = os.getenv("PINECONE_ENV")
 index_name = os.getenv("PINECONE_INDEX")
 
 # Initialize pinecone client
-pinecone.init(api_key=pinecone_api_key, environment=environment)
+pc = Pinecone(api_key=pinecone_api_key, environment=environment)
 index = pinecone.Index(index_name)
 
 # Middleware to secure HTTP endpoint
